@@ -18,18 +18,9 @@
 
 #include QMK_KEYBOARD_H
 
-enum unicode_name {
-  U_AE,
-  U_OE,
-  U_AA
-};
-
-const uint32_t PROGMEM unicode_map[] = {
-  [U_AE] = 0x00E4, // ä
-  [U_OE] = 0x00F6, // ö
-  [U_AA] = 0x00E5  // å
-};
-
+#define UC_AE UC(0x00E4)  // ä
+#define UC_OE UC(0x00F6)  // ö
+#define UC_AA UC(0x00E5)  // å
 
 enum dilemma_keymap_layers {
     LAYER_BASE = 0,
@@ -74,8 +65,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [LAYER_MISC] = LAYOUT_split_3x5_3(
-       KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,    X(U_AA), X(U_OE), KC_UP,   KC_MUTE,  KC_F20,
-       KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,   X(U_AE), KC_RGHT, KC_DOWN, KC_LEFT,  KC_HOME,
+       KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,    U_AA, U_OE, KC_UP,   KC_MUTE,  KC_F20,
+       KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,   U_AE, KC_RGHT, KC_DOWN, KC_LEFT,  KC_HOME,
        KC_F11,  KC_F12,  KC_INS,  KC_DEL,  KC_END,   KC_ESC,  KC_VOLD, KC_VOLU, KC_MNXT,  KC_MPLY,
                       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
   ),
